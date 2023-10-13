@@ -1,8 +1,12 @@
 import java.util.Scanner;
+import java.util.InputMismatchException;
 import java.util.Locale;
 
 public class AboutMe {
     public static void main(String[] args) {
+        
+        //forma mais sutil de apresentar alertas aos usuários
+        try{
         // criando o objeto scanner
         Scanner scanner = new Scanner(System.in).useLocale(Locale.US);
 
@@ -23,5 +27,9 @@ public class AboutMe {
         System.out.println("Tenho " + altura + " de altura");
     
         scanner.close();
+        }
+        catch (InputMismatchException e){
+            System.err.println("Os campos idade e altura precisam ser númericos");
+        }
     }
 }
